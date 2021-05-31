@@ -1,4 +1,6 @@
 {
+    "manifest-version": 2,
+
     "name": "Taskier",
     "description": "This extension allow you to save a URL as a task, and edit it",
     "version": "1.0.0",
