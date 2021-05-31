@@ -1,0 +1,13 @@
+{
+    "name": "Taskier",
+    "description": "This extension allow you to save a URL as a task, and edit it",
+    "version": "1.0.0",
+  
+    "browser_action": {
+     "default_icon": "images/icon.png",
+     "default_popup": "popup.html"
+    },
+    "permissions": [
+     "activeTab"
+     ]
+  }
