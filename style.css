@@ -1,0 +1,22 @@
+body {
+    width: 300px;
+    height: 350px;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#title {
+    color: rgb(0, 102, 255);
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+#titleImg {
+    width: 25px;
+    height: 25px;
+}
