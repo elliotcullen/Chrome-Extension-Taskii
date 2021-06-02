@@ -3,6 +3,10 @@ window.onload = function () {
     setInputs();
 }
 
+function goBack() {
+    window.location.href="index.html";
+}
+
 function setInputs() {
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
         let url = tabs[0].url;
@@ -10,35 +14,25 @@ function setInputs() {
         urlInput.value = url;
     });
 }
-function addTask() {
-    chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
-        let url = tabs[0].url;
-        chrome.storage.sync.get(["arr"], function(result) {
-            let arr = result.arr;
-            arr.push(url);
-            console.log(taskArr);
-        });
 
-        let urlInput = document.getElementById("URLinput")
-        urlInput.value = url;
-        // urlArray.push(url);
-        // console.log(urlArray);
-        // data.urls = urlArray;
-        // console.log(data)
-        // localStorage.setItem('urlObj', data);
-        // let mainDiv = document.getElementById("listContent");
-        // let checkbox = document.createElement("input");
-        // let label = document.createElement("label");
-        // label.for = "checkbox";
-        // label.innerHTML = url;
-        // checkbox.type = "checkbox";
-        // checkbox.name = "checkbox";
-        // checkbox.classList.add("checkBox");
-        // let contentDiv = document.createElement("div");
-        // contentDiv.classList.add("taskRowDiv");
-        // contentDiv.append(checkbox);
-        // contentDiv.append(label);
-        //loadData();
-        mainDiv.append(contentDiv)
+function addTask() {
+    chrome.storage.sync.get({arr:[], name:[]}, function(results) {
+        updateURLArr(results.arr);
+        updateNameArr(results.name);
+    });
+    goBack();
+}
+
+function updateURLArr(array) {
+    array.push(document.getElementById("URLinput").value);
+    chrome.storage.sync.set({arr:array}, function() {
+        console.log("added " + array + " to the URl array with new values");
+    });
+}
+
+function updateNameArr(array) {
+    array.push(document.getElementById("txtName").value);
+    chrome.storage.sync.set({name:array}, function() {
+        console.log("added " + array + " to the name array with new values");
     });
 }

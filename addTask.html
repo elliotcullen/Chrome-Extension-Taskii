@@ -2,22 +2,26 @@
 <head>
     <title>Taskier</title>
     <script src="addTask.js"></script>
-    <link rel="stylesheet" href="addTask.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="header">
-        <h2 id="title">Taskier</h2>
-        <img id="titleImg" src="images/icon.png">
+        <div id="urlpgtitle">
+            <h2 id="title">Taskier</h2>
+            <img id="titleImg" src="images/icon.png">
+        </div>
     </div>
-    <p id="descriptor">Add a URL as a task</p>
-    <div id="inputWrapper">
-        <div id="inputDiv">
-            <label label for="txtName">Display Name:</label>
-            <input type="text" id="txtName">
-            <label label for="URLinput">URL:</label>
-            <input type="text" id="URLinput">
-        </div> 
-        <button id="addTaskBtn">Add a Task</button>
+    <div id="body">
+        <p id="descriptor">Add a name to save this url to your list.</p>
+        <div id="inputWrapper">
+            <div id="inputDiv">
+                <label label for="txtName">Display Name:</label>
+                <input type="text" class="input" id="txtName">
+                <label label for="URLinput">URL:</label>
+                <input type="text" class="input" id="URLinput">
+            </div> 
+            <button id="addTaskBtn" class="addTaskBtn">Add a Task</button>
+        </div>
     </div>
 </body>
 </html>

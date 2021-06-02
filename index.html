@@ -2,15 +2,23 @@
 <head>
     <title>Taskier</title>
     <script src="index.js"></script>
+    <!-- <script src="background.js"></script> -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="header">
-        <h2 id="title">Taskier</h2>
-        <img id="titleImg" src="images/icon.png">
+        <div>
+            <input type="image" src="images/delete.png" id="clearAll"></input>
+        </div>
+        <div id="headerTitle">
+            <p id="title">Taskier</p>
+            <img id="titleImg" src="images/icon.png">
+        </div>
     </div>
-    <p id="descriptor">Add a URL as a task</p>
-    <button id="changePage">Add a Task</button>
+    <div id="txtBtnWrapper">
+        <p id="descriptor">Welcome! Click the button below to get started <br> and save a website.</p>
+        <button id="changePage" class="addTaskBtn">Save URL</button>
+    </div>
     <div id="listContent">
         
     </div>
