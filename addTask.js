@@ -1,7 +1,15 @@
 window.onload = function () {
     document.getElementById("addTaskBtn").addEventListener("click", addTask);
+    setInputs();
 }
 
+function setInputs() {
+    chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+        let url = tabs[0].url;
+        let urlInput = document.getElementById("URLinput")
+        urlInput.value = url;
+    });
+}
 function addTask() {
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
         let url = tabs[0].url;
@@ -10,6 +18,9 @@ function addTask() {
             arr.push(url);
             console.log(taskArr);
         });
+
+        let urlInput = document.getElementById("URLinput")
+        urlInput.value = url;
         // urlArray.push(url);
         // console.log(urlArray);
         // data.urls = urlArray;

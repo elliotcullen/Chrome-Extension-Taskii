@@ -2,7 +2,7 @@
 <head>
     <title>Taskier</title>
     <script src="addTask.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="addTask.css">
 </head>
 <body>
     <div id="header">
@@ -10,8 +10,14 @@
         <img id="titleImg" src="images/icon.png">
     </div>
     <p id="descriptor">Add a URL as a task</p>
-    <input type="text" id="text">
-    <input type="text" id="URLinput">
-    <button id="addTaskBtn">Add a Task</button>
+    <div id="inputWrapper">
+        <div id="inputDiv">
+            <label label for="txtName">Display Name:</label>
+            <input type="text" id="txtName">
+            <label label for="URLinput">URL:</label>
+            <input type="text" id="URLinput">
+        </div> 
+        <button id="addTaskBtn">Add a Task</button>
+    </div>
 </body>
 </html>
