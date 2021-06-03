@@ -16,23 +16,29 @@ function setInputs() {
 }
 
 function addTask() {
-    chrome.storage.sync.get({arr:[], name:[]}, function(results) {
-        updateURLArr(results.arr);
-        updateNameArr(results.name);
+    chrome.storage.sync.get({data: []}, function(results) {
+        updateURLArr(results.data);
+        //updateNameArr(results);
+        console.log(results);
     });
     goBack();
 }
 
 function updateURLArr(array) {
-    array.push(document.getElementById("URLinput").value);
-    chrome.storage.sync.set({arr:array}, function() {
+    let url = document.getElementById("URLinput").value
+    let name = document.getElementById("txtName").value
+    let obj = {
+        name: name,
+        url: url
+    }
+    array.push(obj);
+    chrome.storage.sync.set({data: array}, function() {
         console.log("added " + array + " to the URl array with new values");
     });
 }
 
-function updateNameArr(array) {
-    array.push(document.getElementById("txtName").value);
-    chrome.storage.sync.set({name:array}, function() {
-        console.log("added " + array + " to the name array with new values");
-    });
-}
+// function updateNameArr(array) {
+//     chrome.storage.sync.set({data:[{name:array}]}, function() {
+//         console.log("added " + array + " to the name array with new values");
+//     });
+// }
