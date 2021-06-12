@@ -1,13 +1,14 @@
 window.onload = function() {
-    
-    document.getElementById("addTaskBtn").addEventListener("click", urlClick);
+    // document.getElementById("addTaskBtn").addEventListener("click", urlClick);
 }
 
-function urlClick() {
-    let id = this.id;
-    console.log(id);
-    // chrome.browserAction.onClicked.addListener(function(activeTab){
-    //     var newURL = "http://stackoverflow.com/";
-    //     chrome.tabs.create({ url: newURL });
-    // });
+function onClick(url) {
+    newUrl = "http://" + url;
+    console.log(newUrl);
+    chrome.browserAction.onClicked.addListener(function(activeTab){
+        newUrl = "http://" + url;
+        console.log(newUrl);
+        chrome.tabs.create({ url: newUrl });
+        console.log(newUrl);
+    });
 }

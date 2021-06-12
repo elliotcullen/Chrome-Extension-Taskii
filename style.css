@@ -1,6 +1,6 @@
 body {
-    width: 300px;
-    height: 350px;
+    width: 350px;
+    height: 400px;
 }
 
 .br {
@@ -13,6 +13,7 @@ body {
 #header {
     display: flex;
     flex-direction: column;
+    padding: 5px;
 }
 
 #headerTitle {
@@ -23,12 +24,18 @@ body {
 }
 
 #title {
-    color: rgb(0, 102, 255);
+    color: rgb(255, 230, 0);
     font-weight: bold;
     margin-right: 4px;
     margin-top: 3px;
     margin-bottom: 3px;
     font-size: 20px;
+}
+
+#descriptors {
+    color: black;
+    font-size: 13px;
+    margin-bottom: 15px;
 }
 
 #titleImg {
@@ -40,14 +47,53 @@ body {
 #clearAll {
     width: 15px;
     height: 15px;
-    float: right;
+    float: left;
+    margin: 7px 7px 0px 0px;
+}
+
+#folderSelect {
+    width: 15px;
+    height: 15px;
+    float: left;
     margin: 7px 7px 0px 0px;
 }
 
 .checkBox {
-    border-radius: 100%;
-    width: 20px;
-    height: 30px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    -webkit-appearance: none;
+    background-color:rgb(255, 246, 164);
+    cursor: pointer;
+    margin-top: 3px;
+}
+
+.checkBox:checked {
+    background-color:rgb(255, 230, 0);
+}
+
+.checkBox:after {
+    content: "";
+    position: absolute;
+    display: block;
+}
+
+.linkBtn {
+    border: none;
+    background-color: white;
+    position: absolute;
+}
+
+.iconImg {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+}
+
+.iconDiv {
+    float: right;
+    margin-top: 3px;
+    width: 37px;
 }
 
 .noTasksImg {
@@ -69,6 +115,15 @@ body {
     color: white;
     padding: 5px 15px 5px 15px;
     border-radius: 5px;    
+    cursor: pointer;
+}
+
+.addTaskBtn:hover {
+    border: 1px solid lightgrey;
+    background-color:rgb(55, 135, 255);
+    color: white;
+    padding: 5px 15px 5px 15px;
+    border-radius: 5px;    
 }
 
 #txtBtnWrapper {
@@ -77,14 +132,35 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 5px;
+}
+
+#listContent {
+    padding: 5px;
 }
 
 .taskRowDiv {
+    padding: 5px 10px 0px 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 0.5px lightgrey;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+.taskRowDiv:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 5px 0.5px rgb(175, 175, 175);
+}
+
+.headerIcons {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 5px 10px 0px 10px;
+    margin-left: 10px;
 }
+
 
 
 
@@ -131,4 +207,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+
+
+
+
+
+/* ADD AND EDIT TAGS CSS */
+#tagEditSlct {
+    background-color: rgb(255, 246, 164);
 }

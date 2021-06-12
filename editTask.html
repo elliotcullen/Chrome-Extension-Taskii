@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Taskier</title>
-    <script src="addTask.js"></script>
+    <script src="editTask.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,21 +15,15 @@
         </div>
     </div>
     <div id="body">
-        <p id="descriptor">Add a name to save this url to your reading list.</p>
+        <p id="descriptor">Update you URLs name and url if you wish.</p>
         <div id="inputWrapper">
             <div id="inputDiv">
                 <label label for="txtName">Display Name:</label>
                 <input type="text" class="input" id="txtName">
                 <label label for="URLinput">URL:</label>
                 <input type="text" class="input" id="URLinput">
-                <label label for="tagInput">Tag:</label>
-                <select class="dropdown" id="tagInput">
-                    <option >Remove</option>
-                    <option id="tagEditSlct" value="addNew">Edit Tags</option>
-                </select>
-                
             </div> 
-            <button id="addTaskBtn" class="addTaskBtn">Save Website</button>
+            <button id="addTaskBtn" class="addTaskBtn">Update Bookmark</button>
         </div>
     </div>
 </body>

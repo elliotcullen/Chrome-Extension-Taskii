@@ -1,5 +1,7 @@
 window.onload = function () {
     document.getElementById("addTaskBtn").addEventListener("click", addTask);
+    document.getElementById("goBack").addEventListener("click", goBack);
+    document.getElementById("tagInput").addEventListener("change", addTag);
     setInputs();
 }
 
@@ -18,7 +20,6 @@ function setInputs() {
 function addTask() {
     chrome.storage.sync.get({data: []}, function(results) {
         updateURLArr(results.data);
-        //updateNameArr(results);
         console.log(results);
     });
     goBack();
@@ -27,9 +28,19 @@ function addTask() {
 function updateURLArr(array) {
     let url = document.getElementById("URLinput").value
     let name = document.getElementById("txtName").value
+    function makeid(length) {
+        let result = [];
+        let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+          result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+       }
+       return result.join('');
+    }
     let obj = {
         name: name,
-        url: url
+        url: url,
+        id: makeid(10)
     }
     array.push(obj);
     chrome.storage.sync.set({data: array}, function() {
@@ -37,8 +48,10 @@ function updateURLArr(array) {
     });
 }
 
-// function updateNameArr(array) {
-//     chrome.storage.sync.set({data:[{name:array}]}, function() {
-//         console.log("added " + array + " to the name array with new values");
-//     });
-// }
+function addTag() {
+    let val = document.getElementById("tagInput").value;
+    console.log(val);
+    if(val == "addNew") {
+        window.location.href="addTag.html";
+    }
+}
