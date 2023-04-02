@@ -39,8 +39,6 @@ function updateURLArr(array, id) {
         let index = result.data.findIndex(i => i.id === id);
         result.data.splice(index, 1);
         result.data.push(obj);
-        chrome.storage.sync.set({data: result.data}, function() {
-            console.log("added " + array + " to the URl array with new values");
-        });
+        chrome.storage.sync.set({data: result.data}, function() {});
     });
 }

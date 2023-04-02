@@ -1,7 +1,7 @@
 let data = {};
 
 window.onload = function () {
-    document.getElementById("changePage").addEventListener("click", changePageAdd);
+    document.getElementById("changePage").addEventListener("click", window.location.href="addTask.html");
     document.getElementById("clearAll").addEventListener("click", clearStorage);
     loadData();
 }
@@ -9,8 +9,7 @@ window.onload = function () {
 function clearStorage() {
     if (confirm("Are you sure you want to delete all?")) {
         chrome.storage.sync.clear();
-      } else {
-      }
+    }
     loadData();
 }
 
@@ -18,10 +17,8 @@ function loadData() {
     let mainDiv = document.getElementById("listContent");
     mainDiv.innerHTML = "";
     chrome.storage.sync.get({data: []}, function(result) {
-        console.log(result);
         if (result.data.length > 0) {
             result.data.map((x) => {
-                console.log(result.data)
                 let checkbox = document.createElement("input");
                 checkbox.onclick = function() {event.stopPropagation()}
                 checkbox.type = "checkbox";
@@ -41,7 +38,7 @@ function loadData() {
                 deleteimg.id = deleteimgId;
                 deleteimg.classList.add("iconImg");
                 deleteimg.src = "images/delete.png";
-                deleteimg.onclick = function () {deleteMe(x.id, deleteimgId)};
+                deleteimg.onclick = function () {deleteMe(x.id)};
 
                 let icons = document.createElement("div");
                 icons.append(editimg);
@@ -59,7 +56,7 @@ function loadData() {
                 contentDiv1.append(icons);
                 contentDiv1.classList.add("taskRowDiv");
 
-                contentDiv1.onclick = function() {newTab(x.url);};
+                contentDiv1.onclick = function() {chrome.tabs.create({'url': x.url});};
                 mainDiv.append(contentDiv1);
             });
         } else if(result.data.length == 0) {
@@ -79,23 +76,15 @@ function loadData() {
     });
 }
 
-function changePageAdd() {
-    window.location.href="addTask.html";
-}
-
 function changePageEdit(id, url, name) {
-    event.stopPropagation()
+    event.stopPropagation();
     localStorage.setItem("id", id);
     localStorage.setItem("url", url);
     localStorage.setItem("name", name);
     window.location.href="editTask.html";
 }
 
-function newTab(url) {
-    chrome.tabs.create({'url': url});
-}
-
-function deleteMe(taskid, arrid) {
+function deleteMe(taskid) {
     event.stopPropagation()
     chrome.storage.sync.get({data: []}, function(result) {
         let index = result.data.findIndex(i => i.id === taskid);

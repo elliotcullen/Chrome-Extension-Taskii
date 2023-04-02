@@ -19,7 +19,6 @@ function setInputs() {
 function addTask() {
     chrome.storage.sync.get({data: []}, function(results) {
         updateURLArr(results.data);
-        console.log(results);
     });
     goBack();
 }
@@ -42,7 +41,5 @@ function updateURLArr(array) {
         id: makeid(10)
     }
     array.push(obj);
-    chrome.storage.sync.set({data: array}, function() {
-        console.log("added " + array + " to the URl array with new values");
-    });
+    chrome.storage.sync.set({data: array}, function() {});
 }
