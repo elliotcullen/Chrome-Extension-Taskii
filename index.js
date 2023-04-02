@@ -1,7 +1,7 @@
 let data = {};
 
 window.onload = function () {
-    document.getElementById("changePage").addEventListener("click", window.location.href="addTask.html");
+    document.getElementById("changePage").addEventListener("click", function() {window.location.href="addTask.html"});
     document.getElementById("clearAll").addEventListener("click", clearStorage);
     loadData();
 }
