@@ -1,7 +1,6 @@
 window.onload = function () {
     document.getElementById("addTaskBtn").addEventListener("click", addTask);
     document.getElementById("goBack").addEventListener("click", goBack);
-    document.getElementById("tagInput").addEventListener("change", addTag);
     setInputs();
 }
 
@@ -46,12 +45,4 @@ function updateURLArr(array) {
     chrome.storage.sync.set({data: array}, function() {
         console.log("added " + array + " to the URl array with new values");
     });
-}
-
-function addTag() {
-    let val = document.getElementById("tagInput").value;
-    console.log(val);
-    if(val == "addNew") {
-        window.location.href="addTag.html";
-    }
 }

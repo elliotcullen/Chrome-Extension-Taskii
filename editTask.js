@@ -23,8 +23,6 @@ function updateTask() {
     chrome.storage.sync.get({data: []}, function(results) {
         let id = localStorage.getItem("id");
         updateURLArr(results.data, id);
-        //updateNameArr(results);
-        console.log(results);
     });
     goBack();
 }

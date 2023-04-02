@@ -10,7 +10,7 @@ body {
     margin: 5px 0px 5px 0px;
 }
 
-#header {
+#headerOptions {
     display: flex;
     flex-direction: column;
     padding: 5px;
@@ -193,8 +193,8 @@ body {
     border: 1px solid lightgrey;
 }
 
-#urlpgtitle {
-    margin-top: 22px;
+#urlPageTitle {
+    margin-top: 12px;
     display: flex;
     flex-direction: row;
     align-items: center;

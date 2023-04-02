@@ -1,7 +1,3 @@
-window.onload = function() {
-    // document.getElementById("addTaskBtn").addEventListener("click", urlClick);
-}
-
 function onClick(url) {
     newUrl = "http://" + url;
     console.log(newUrl);

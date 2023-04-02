@@ -1,20 +1,21 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
 
     "name": "Readily",
     "description": "An easy to use reading list for Chrome.",
     "version": "1.0.0",
   
-    "browser_action": {
+    "action": {
      "default_icon": "images/open-book.png",
      "default_popup": "index.html"
     },
 
     "background": {
-        "scripts": ["background.js"]
+        "service_worker": "service_worker.js",
+        "type": "module"
     },
 
-    "icon": {"512": "images/open-book.png"},
+    "icons": {"512": "images/open-book.png"},
 
     "content_scripts": [{
         "matches": ["<all_urls>"],
